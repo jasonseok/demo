@@ -18,7 +18,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 @EnableAuthorizationServer
 public class OAuthConfig extends AuthorizationServerConfigurerAdapter{
-    @Value("${resouce.id:spring-boot-application}")
+    @Value("${resource.id:spring-boot-application}")
     private String resourceId;
     
     @Value("${access_token.validity_period:3600}")
@@ -56,14 +56,7 @@ public class OAuthConfig extends AuthorizationServerConfigurerAdapter{
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-        // .withClient("foo").secret("bar")        
-        // .authorizedGrantTypes("authorization_code","password","implicit","refresh_token")
-        // .authorities("ROLE_USER")
-        // .scopes("read", "write")
-        // .resourceIds(resourceId)
-        // .accessTokenValiditySeconds(accessTokenValiditySeconds)
-        // .and()
-        .withClient("ow").secret("osstem#%ow")        
+        .withClient("foo").secret("bar")        
         .authorizedGrantTypes("authorization_code","password","implicit","refresh_token")
         .authorities("ROLE_USER")
         .scopes("read", "write")
